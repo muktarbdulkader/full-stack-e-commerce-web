@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order - TechStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/order.css">
+</head>
+<body style="background-color: #f9fafb;">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar"></nav>
+
+    <!-- Track Order Section -->
+    <section class="section" style="min-height: 60vh; padding-top: 6rem; background-color: #f9fafb;">
+        <div class="container">
+            <div class="tracking-container">
+                <!-- Track Order Form -->
+                <div class="track-form">
+                    <h2>Track Your Order</h2>
+                    <p style="text-align: center; color: var(--gray-600); margin-bottom: 2rem;">Enter your order number to track your delivery status</p>
+                    
+                    <form id="trackForm">
+                        <div class="track-form-grid">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <input 
+                                    type="text" 
+                                    id="orderNumber" 
+                                    class="form-input" 
+                                    placeholder="Enter order number (e.g., ORD-1234567890)"
+                                    required
+                                >
+                            </div>
+                            <button type="submit" class="btn btn-primary">Track Order</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Status (Hidden by default) -->
+                <div id="orderStatus" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/advanced-features.js"></script>
+    <script src="js/track-order.js"></script>
+</body>
+</html>

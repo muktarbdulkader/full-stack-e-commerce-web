@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - System Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .info { color: #3b82f6; }
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1e40af;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 TechStore - System Test</h1>
+    <p>This page helps verify that all components are working correctly.</p>
+
+    <div class="test-section">
+        <h2>Configuration Test</h2>
+        <button onclick="testConfig()">Test Configuration</button>
+        <div id="config-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>LocalStorage Test</h2>
+        <button onclick="testStorage()">Test Storage</button>
+        <div id="storage-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Mock Products Test</h2>
+        <button onclick="testProducts()">Load Products</button>
+        <div id="products-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Authentication Test</h2>
+        <button onclick="testAuth()">Test Mock Login</button>
+        <button onclick="testLogout()">Test Logout</button>
+        <div id="auth-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Cart Test</h2>
+        <button onclick="testCart()">Test Cart Functions</button>
+        <div id="cart-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Quick Actions</h2>
+        <button onclick="window.location.href='index.html'">Go to Home</button>
+        <button onclick="window.location.href='shop.html'">Go to Shop</button>
+        <button onclick="window.location.href='admin.html'">Go to Admin</button>
+        <button onclick="localStorage.clear(); alert('Storage cleared!')">Clear Storage</button>
+    </div>
+
+    <div id="results"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+
+    <script>
+        function log(elementId, message, type = 'info') {
+            const el = document.getElementById(elementId);
+            const className = type === 'success' ? 'success' : type === 'error' ? 'error' : 'info';
+            el.innerHTML += `<p class="${className}">✓ ${message}</p>`;
+        }
+
+        function testConfig() {
+            const result = document.getElementById('config-result');
+            result.innerHTML = '';
+            
+            log('config-result', `API URL: ${CONFIG.API_BASE_URL}`, 'success');
+            log('config-result', `Token Key: ${CONFIG.TOKEN_KEY}`, 'success');
+            log('config-result', `Cart Key: ${CONFIG.CART_KEY}`, 'success');
+            log('config-result', `Mock Products Count: ${MOCK_PRODUCTS.length}`, 'success');
+            log('config-result', `Categories: ${CATEGORIES.join(', ')}`, 'success');
+        }
+
+        function testStorage() {
+            const result = document.getElementById('storage-result');
+            result.innerHTML = '';
+            
+            try {
+                const testData = { test: 'data', timestamp: Date.now() };
+                storage.set('test_key', testData);
+                const retrieved = storage.get('test_key');
+                
+                if (retrieved && retrieved.test === 'data') {
+                    log('storage-result', 'LocalStorage write: PASSED', 'success');
+                    log('storage-result', 'LocalStorage read: PASSED', 'success');
+                    storage.remove('test_key');
+                    log('storage-result', 'LocalStorage remove: PASSED', 'success');
+                } else {
+                    log('storage-result', 'Storage test FAILED', 'error');
+                }
+            } catch (error) {
+                log('storage-result', `Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testProducts() {
+            const result = document.getElementById('products-result');
+            result.innerHTML = '<p class="info">Loading products...</p>';
+            
+            try {
+                const { products } = await API.products.getAll();
+                result.innerHTML = '';
+                log('products-result', `Loaded ${products.length} products`, 'success');
+                
+                if (products.length > 0) {
+                    log('products-result', `First product: ${products[0].name}`, 'info');
+                    log('products-result', `Price: ${formatPrice(products[0].price)}`, 'info');
+                    log('products-result', `Category: ${products[0].category}`, 'info');
+                }
+            } catch (error) {
+                result.innerHTML = '';
+                log('products-result', `Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testAuth() {
+            const result = document.getElementById('auth-result');
+            result.innerHTML = '<p class="info">Testing authentication...</p>';
+            
+            try {
+                const response = await Auth.login('admin@store.com', 'admin123');
+                result.innerHTML = '';
+                
+                if (response.success) {
+                    log('auth-result', 'Mock login: PASSED', 'success');
+                    log('auth-result', `User: ${response.user.name}`, 'info');
+                    log('auth-result', `Role: ${response.user.role}`, 'info');
+                    log('auth-result', `Token stored: ${Auth.isAuthenticated() ? 'YES' : 'NO'}`, 'success');
+                }
+            } catch (error) {
+                result.innerHTML = '';
+                log('auth-result', `Error: ${error.message}`, 'error');
+            }
+        }
+
+        function testLogout() {
+            const result = document.getElementById('auth-result');
+            result.innerHTML = '';
+            
+            Auth.logout();
+            log('auth-result', 'Logout successful', 'success');
+            log('auth-result', `Authenticated: ${Auth.isAuthenticated() ? 'YES' : 'NO'}`, 'info');
+        }
+
+        async function testCart() {
+            const result = document.getElementById('cart-result');
+            result.innerHTML = '<p class="info">Testing cart functions...</p>';
+            
+            try {
+                // Clear cart first
+                API.cart.clear();
+                
+                // Get a product
+                const { products } = await API.products.getAll();
+                if (products.length > 0) {
+                    const product = products[0];
+                    
+                    result.innerHTML = '';
+                    
+                    // Add to cart
+                    API.cart.add(product, 2);
+                    log('cart-result', 'Add to cart: PASSED', 'success');
+                    
+                    // Get cart
+                    const cart = API.cart.get();
+                    log('cart-result', `Cart items: ${cart.length}`, 'info');
+                    log('cart-result', `Cart count: ${API.cart.getCount()}`, 'info');
+                    
+                    // Get total
+                    const total = API.cart.getTotal();
+                    log('cart-result', `Cart total: ${formatPrice(total)}`, 'info');
+                    
+                    // Clear cart
+                    API.cart.clear();
+                    log('cart-result', 'Clear cart: PASSED', 'success');
+                }
+            } catch (error) {
+                result.innerHTML = '';
+                log('cart-result', `Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-run config test on load
+        window.addEventListener('load', () => {
+            testConfig();
+        });
+    </script>
+</body>
+</html>

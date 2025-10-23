@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Design Showcase</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        .showcase-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .showcase-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .demo-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .code-block {
+            background: var(--gray-900);
+            color: #10b981;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar"></nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title gradient-text">🎨 Design Showcase</h1>
+            <p class="hero-subtitle">
+                Explore all the modern enhancements and features added to TechStore
+            </p>
+        </div>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Animations -->
+    <section class="showcase-section">
+        <div class="container">
+            <h2 class="showcase-title">✨ Smooth Animations</h2>
+            <div class="demo-grid">
+                <div class="demo-card reveal">
+                    <h3>Fade In</h3>
+                    <p>Elements smoothly fade in on page load</p>
+                    <div class="code-block">animation: fade-in 0.5s ease</div>
+                </div>
+                <div class="demo-card reveal floating">
+                    <h3>Floating</h3>
+                    <p>Gentle up-and-down motion</p>
+                    <div class="code-block">animation: floating 3s infinite</div>
+                </div>
+                <div class="demo-card reveal">
+                    <h3>Slide In</h3>
+                    <p>Content slides from left and right</p>
+                    <div class="code-block">animation: slide-in-left 0.6s</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buttons -->
+    <section class="showcase-section" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="showcase-title">🎯 Enhanced Buttons</h2>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-outline">Outline Button</button>
+                <button class="btn btn-primary" style="background: linear-gradient(135deg, #ec4899, #7c3aed);">Gradient Button</button>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: var(--gray-600);">
+                Hover over buttons to see ripple effect and lift animation
+            </p>
+        </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="showcase-section">
+        <div class="container">
+            <h2 class="showcase-title">💎 Product Cards</h2>
+            <div class="products-grid">
+                <div class="card">
+                    <div class="zoom-hover">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Product" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-outline">Electronics</span>
+                        <h3 class="card-title">Amazing Product</h3>
+                        <p class="card-description">Hover over this card to see the lift effect and image zoom</p>
+                        <div class="card-price">$299.99</div>
+                    </div>
+                </div>
+                <div class="card glass-card">
+                    <div class="zoom-hover">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Product" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-outline">Wearables</span>
+                        <h3 class="card-title">Glassmorphism Card</h3>
+                        <p class="card-description">This card has a glass-blur effect</p>
+                        <div class="card-price">$199.99</div>
+                    </div>
+                </div>
+                <div class="card gradient-border">
+                    <div class="zoom-hover">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" alt="Product" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-outline">Mobile</span>
+                        <h3 class="card-title">Gradient Border</h3>
+                        <p class="card-description">Beautiful gradient border effect</p>
+                        <div class="card-price">$999.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gradients -->
+    <section class="showcase-section gradient-bg" style="color: white;">
+        <div class="container">
+            <h2 class="showcase-title" style="color: white;">🌈 Gradient Backgrounds</h2>
+            <div class="demo-grid">
+                <div style="background: linear-gradient(135deg, #2563eb, #7c3aed); padding: 3rem; border-radius: var(--border-radius); text-align: center;">
+                    <h3>Blue to Purple</h3>
+                    <p>Dynamic gradient animation</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #ec4899, #ef4444); padding: 3rem; border-radius: var(--border-radius); text-align: center;">
+                    <h3>Pink to Red</h3>
+                    <p>Vibrant color combination</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #10b981, #3b82f6); padding: 3rem; border-radius: var(--border-radius); text-align: center;">
+                    <h3>Green to Blue</h3>
+                    <p>Fresh and modern</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading States -->
+    <section class="showcase-section" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="showcase-title">⏳ Loading States</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Skeleton Loading</h3>
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-image"></div>
+                </div>
+                <div class="demo-card" style="text-align: center;">
+                    <h3>Modern Spinner</h3>
+                    <div style="margin: 2rem 0;">
+                        <div class="spinner-modern" style="margin: 0 auto;"></div>
+                    </div>
+                    <p>Rotating gradient spinner</p>
+                </div>
+                <div class="demo-card">
+                    <h3>Progress Bar</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%;"></div>
+                    </div>
+                    <p style="margin-top: 1rem;">Animated gradient fill</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Effects -->
+    <section class="showcase-section">
+        <div class="container">
+            <h2 class="showcase-title">🎨 Special Effects</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="neon-glow" style="color: var(--primary);">Neon Glow</h3>
+                    <p>Text with glowing effect</p>
+                </div>
+                <div class="demo-card shadow-modern">
+                    <h3>Modern Shadow</h3>
+                    <p>Multi-layer shadow depth</p>
+                </div>
+                <div class="demo-card">
+                    <div class="tooltip" data-tooltip="Hover me!">
+                        <h3>Tooltip</h3>
+                    </div>
+                    <p>Hover over the title</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges -->
+    <section class="showcase-section" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="showcase-title">🏷️ Badges & Tags</h2>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-danger">Danger</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-outline">Outline</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Elements -->
+    <section class="showcase-section">
+        <div class="container">
+            <h2 class="showcase-title">🎮 Interactive Elements</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Hover Effects</h3>
+                    <p>Cards lift up on hover</p>
+                    <div style="margin-top: 1rem; padding: 1rem; background: var(--gray-100); border-radius: var(--border-radius); cursor: pointer; transition: all 0.3s ease;" 
+                         onmouseover="this.style.transform='translateY(-5px)'" 
+                         onmouseout="this.style.transform='translateY(0)'">
+                        Try hovering over me!
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <h3>Icon Bounce</h3>
+                    <div class="icon-btn" style="margin-top: 1rem; font-size: 2rem;">
+                        ⭐
+                    </div>
+                    <p>Hover over the star</p>
+                </div>
+                <div class="demo-card">
+                    <h3>Smooth Scroll</h3>
+                    <a href="#top" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">
+                        Scroll to Top
+                    </a>
+                    <p style="margin-top: 1rem;">Smooth scrolling enabled</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">🎉 All Enhancements Ready!</h2>
+                <p class="newsletter-subtitle">
+                    Your website now has all these modern features and more!
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="index.html" class="btn btn-primary" style="background: white; color: var(--primary); margin-right: 1rem;">
+                        View Homepage
+                    </a>
+                    <a href="shop.html" class="btn btn-outline" style="border-color: white; color: white;">
+                        Browse Products
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer"></footer>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    
+    <script>
+        // Scroll reveal animation
+        function addScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                reveals.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            addScrollReveal();
+            
+            // Scroll indicator
+            document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
+                window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+            });
+
+            // Show toast on load
+            setTimeout(() => {
+                toast.success('Welcome to the Design Showcase! 🎨');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

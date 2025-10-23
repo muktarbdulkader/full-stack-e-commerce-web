@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - TechStore</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/advanced-features.css" />
+    <link rel="stylesheet" href="css/additional-features.css" />
+  </head>
+  <body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <!-- Comparison Bar (appears when products added) -->
+    <div id="comparisonBar" class="comparison-bar">
+      <div
+        class="container"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div class="comparison-items" id="comparisonItems"></div>
+        <div>
+          <button class="btn btn-primary" onclick="viewComparison()">
+            Compare Products
+          </button>
+          <button class="btn btn-secondary" onclick="clearComparison()">
+            Clear All
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-container">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+          "
+        >
+          <h1 class="page-title">Shop All Products</h1>
+          <!-- Currency Selector -->
+          <div id="currencySelector"></div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="shop-filters">
+          <div class="search-bar" style="position: relative">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-input"
+              placeholder="Search products..."
+            />
+            <div id="searchAutocomplete" class="search-autocomplete"></div>
+          </div>
+          <div class="filter-row">
+            <select id="sortSelect" class="form-select">
+              <option value="default">Default</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+            <select id="priceFilter" class="form-select">
+              <option value="all">All Prices</option>
+              <option value="under100">Under $100</option>
+              <option value="100-500">$100 - $500</option>
+              <option value="500-1000">$500 - $1000</option>
+              <option value="over1000">Over $1000</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories-filter" id="categoriesFilter"></div>
+
+        <!-- Filter Tags (appears when filters applied) -->
+        <div id="filterTags"></div>
+
+        <!-- Products Count -->
+        <div id="productsCount" class="products-count"></div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </div>
+
+    <!-- Recently Viewed Products -->
+    <div id="recentlyViewedSection"></div>
+
+    <footer class="footer" id="footer"></footer>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/advanced-features.js"></script>
+    <script src="js/additional-features.js"></script>
+    <script src="js/shop.js"></script>
+
+    <script>
+      // Initialize advanced features on shop page
+      document.addEventListener("DOMContentLoaded", () => {
+        // Add currency selector
+        const currencyEl = document.getElementById("currencySelector");
+        if (currencyEl) {
+          currencyEl.innerHTML = currencyConverter.renderSelector();
+        }
+
+        // Update comparison bar
+        updateComparisonBar();
+
+        // Initialize recently viewed section
+        setTimeout(() => {
+          recentlyViewedSection.render("recentlyViewedSection");
+        }, 1000);
+
+        // Initialize live search
+        if (document.getElementById("searchInput")) {
+          new LiveSearch("searchInput", "searchAutocomplete");
+        }
+
+        // Track page view
+        analytics.trackPageView("Shop Page");
+      });
+
+      // Update comparison bar visibility
+      function updateComparisonBar() {
+        const items = comparison.getAll();
+        const bar = document.getElementById("comparisonBar");
+        const itemsEl = document.getElementById("comparisonItems");
+
+        if (items.length > 0) {
+          bar.classList.add("active");
+          // Show comparison items
+          API.products.getAll().then(({ products }) => {
+            const comparisonProducts = products.filter((p) =>
+              items.includes(p.id)
+            );
+            itemsEl.innerHTML = comparisonProducts
+              .map(
+                (p) => `
+                        <div class="comparison-item">
+                            <img src="${p.image}" alt="${p.name}">
+                            <span>${p.name.substring(0, 20)}...</span>
+                            <button class="comparison-remove" onclick="removeFromComparison('${
+                              p.id
+                            }')">×</button>
+                        </div>
+                    `
+              )
+              .join("");
+          });
+        } else {
+          bar.classList.remove("active");
+        }
+      }
+
+      function viewComparison() {
+        window.location.href = "comparison.html";
+      }
+
+      function clearComparison() {
+        comparison.clear();
+        updateComparisonBar();
+        toast.success("Comparison cleared");
+      }
+
+      function removeFromComparison(productId) {
+        comparison.remove(productId);
+        updateComparisonBar();
+      }
+    </script>
+  </body>
+</html>

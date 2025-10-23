@@ -1,0 +1,15 @@
+/* logo-animations.css */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.logo-animation {
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.logo-animation:hover {
+  transform: scale(1.1);
+}

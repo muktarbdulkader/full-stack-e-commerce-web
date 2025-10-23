@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - TechStore</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <div class="admin-container">
+      <div class="container">
+        <div class="admin-header">
+          <h1 class="page-title">Admin Dashboard</h1>
+          <div class="admin-stats-quick">
+            <div class="stat-quick">
+              <span class="stat-value" id="totalProducts">0</span>
+              <span class="stat-label">Products</span>
+            </div>
+            <div class="stat-quick">
+              <span class="stat-value" id="totalOrders">0</span>
+              <span class="stat-label">Orders</span>
+            </div>
+            <div class="stat-quick">
+              <span class="stat-value" id="totalRevenue">$0</span>
+              <span class="stat-label">Revenue</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-grid">
+          <!-- Sidebar -->
+          <div class="admin-sidebar">
+            <nav class="admin-nav">
+              <button
+                class="admin-nav-item active"
+                onclick="showAdminTab('dashboard')"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Dashboard
+              </button>
+              <button class="admin-nav-item" onclick="showAdminTab('products')">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                </svg>
+                Products
+              </button>
+              <button class="admin-nav-item" onclick="showAdminTab('orders')">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                  ></path>
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                Orders
+              </button>
+              <button
+                class="admin-nav-item"
+                onclick="showAdminTab('analytics')"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="12" y1="20" x2="12" y2="10"></line>
+                  <line x1="18" y1="20" x2="18" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="16"></line>
+                </svg>
+                Analytics
+              </button>
+            </nav>
+          </div>
+
+          <!-- Content -->
+          <div class="admin-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboardTab" class="admin-tab active">
+              <h2 class="section-title">Overview</h2>
+
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div
+                    class="stat-icon"
+                    style="background: #dbeafe; color: #3b82f6"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="stat-info">
+                    <div class="stat-number" id="dashTotalProducts">0</div>
+                    <div class="stat-text">Total Products</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div
+                    class="stat-icon"
+                    style="background: #d1fae5; color: #10b981"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                      ></path>
+                      <rect
+                        x="8"
+                        y="2"
+                        width="8"
+                        height="4"
+                        rx="1"
+                        ry="1"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <div class="stat-info">
+                    <div class="stat-number" id="dashTotalOrders">0</div>
+                    <div class="stat-text">Total Orders</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div
+                    class="stat-icon"
+                    style="background: #fef3c7; color: #f59e0b"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <line x1="12" y1="1" x2="12" y2="23"></line>
+                      <path
+                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="stat-info">
+                    <div class="stat-number" id="dashTotalRevenue">$0</div>
+                    <div class="stat-text">Total Revenue</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div
+                    class="stat-icon"
+                    style="background: #fce7f3; color: #ec4899"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <div class="stat-info">
+                    <div class="stat-number" id="dashPendingOrders">0</div>
+                    <div class="stat-text">Pending Orders</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="recent-orders">
+                <h3>Recent Orders</h3>
+                <div id="recentOrdersList"></div>
+              </div>
+            </div>
+
+            <!-- Products Tab -->
+            <div id="productsTab" class="admin-tab">
+              <div class="tab-header">
+                <h2 class="section-title">Manage Products</h2>
+                <button class="btn btn-primary" onclick="showAddProductModal()">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Add Product
+                </button>
+              </div>
+              <div id="productsTableContainer"></div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div id="ordersTab" class="admin-tab">
+              <h2 class="section-title">Manage Orders</h2>
+              <div id="ordersTableContainer"></div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analyticsTab" class="admin-tab">
+              <h2 class="section-title">Analytics</h2>
+              <div class="analytics-grid">
+                <div class="analytics-card">
+                  <h3>Sales by Category</h3>
+                  <div id="categoryChart"></div>
+                </div>
+                <div class="analytics-card">
+                  <h3>Order Status Distribution</h3>
+                  <div id="statusChart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="addProductModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add New Product</h2>
+          <button class="modal-close" onclick="closeAddProductModal()">
+            &times;
+          </button>
+        </div>
+        <form id="addProductForm" onsubmit="handleAddProduct(event)">
+          <div class="form-group">
+            <label for="productName">Product Name *</label>
+            <input
+              type="text"
+              id="productName"
+              name="name"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="productDescription">Description *</label>
+            <textarea
+              id="productDescription"
+              name="description"
+              class="form-input"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productPrice">Price *</label>
+              <input
+                type="number"
+                id="productPrice"
+                name="price"
+                class="form-input"
+                step="0.01"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="productStock">Stock *</label>
+              <input
+                type="number"
+                id="productStock"
+                name="stock"
+                class="form-input"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productCategory">Category *</label>
+              <select
+                id="productCategory"
+                name="category"
+                class="form-select"
+                required
+              >
+                <option value="Audio">Audio</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Computers">Computers</option>
+                <option value="Wearables">Wearables</option>
+                <option value="Photography">Photography</option>
+                <option value="Accessories">Accessories</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="productBrand">Brand</label>
+              <input
+                type="text"
+                id="productBrand"
+                name="brand"
+                class="form-input"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productImage">Image URL *</label>
+            <input
+              type="url"
+              id="productImage"
+              name="image"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="closeAddProductModal()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">Add Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer" id="footer"></footer>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/advanced-features.js"></script>
+    <script src="js/admin.js"></script>
+    <!-- <script src="js/storage.js"></script> -->
+  </body>
+</html>

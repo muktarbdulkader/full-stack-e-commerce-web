@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore Logo Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f3f4f6;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .instructions {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions h3 {
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructions ol {
+            margin-left: 1.5rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .logo-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logo-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .logo-wrapper {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Logo 1: Gradient with Shopping Cart */
+        .logo1 {
+            width: 512px;
+            height: 512px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
+            gap: 15px;
+        }
+
+        .logo1::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo1-icon {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo1-text {
+            position: relative;
+            z-index: 1;
+            font-size: 65px;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .cart-icon {
+            width: 220px;
+            height: 220px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Logo 2: TS Letters */
+        .logo2 {
+            width: 512px;
+            height: 512px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #8b5cf6 100%);
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.5);
+        }
+
+        .logo2::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+        }
+
+        .logo2-text {
+            font-size: 280px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -20px;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Logo 3: Tech Symbol */
+        .logo3 {
+            width: 512px;
+            height: 512px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.5);
+        }
+
+        .tech-icon {
+            width: 300px;
+            height: 300px;
+            fill: white;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Logo 4: Minimalist */
+        .logo4 {
+            width: 512px;
+            height: 512px;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.4);
+        }
+
+        .store-icon {
+            width: 280px;
+            height: 280px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Logo 5: Diamond Tech */
+        .logo5 {
+            width: 512px;
+            height: 512px;
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.4);
+        }
+
+        .diamond-icon {
+            width: 250px;
+            height: 250px;
+            fill: white;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Logo 6: Modern Badge */
+        .logo6 {
+            width: 512px;
+            height: 512px;
+            background: #1f2937;
+            border-radius: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo6::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            top: 100px;
+        }
+
+        .logo6-main {
+            font-size: 180px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -10px;
+        }
+
+        .logo6-sub {
+            font-size: 60px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .download-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .size-note {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo1, .logo2, .logo3, .logo4, .logo5, .logo6 {
+                width: 256px;
+                height: 256px;
+                border-radius: 50px;
+            }
+
+            .cart-icon, .store-icon { width: 140px; height: 140px; }
+            .tech-icon { width: 150px; height: 150px; }
+            .diamond-icon { width: 125px; height: 125px; }
+            .logo2-text { font-size: 140px; }
+            .logo6-main { font-size: 90px; }
+            .logo6-sub { font-size: 30px; }
+            .logo6::before { top: 50px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 TechStore Logo Generator</h1>
+    
+    <div class="instructions">
+        <h3>📸 How to Save:</h3>
+        <ol>
+            <li>Right-click on any logo below</li>
+            <li>Choose "Save image as..." or "Copy image"</li>
+            <li>Save as PNG with 512x512 size</li>
+            <li>Use online tool to resize to other sizes needed</li>
+            <li>Place all sizes in <code>frontend/images/</code> folder</li>
+        </ol>
+        <p style="margin-top: 1rem; color: #6b7280;"><strong>Tip:</strong> Logo 1 (Shopping Cart) or Logo 2 (TS Letters) are recommended for best recognition!</p>
+    </div>
+
+    <div class="logo-grid">
+        <!-- Logo 1 -->
+        <div class="logo-container">
+            <div class="logo-title">Logo 1: Shopping Cart (Recommended ⭐)</div>
+            <div class="logo-wrapper">
+                <div class="logo1" id="logo1">
+                    <div class="logo1-icon">
+                        <svg class="cart-icon" viewBox="0 0 24 24">
+                            <path d="M9 2L7 9H23L21 2H9Z" stroke-linejoin="round"/>
+                            <path d="M7 9L5 21H25L23 9" stroke-linejoin="round"/>
+                            <circle cx="10" cy="23" r="2"/>
+                            <circle cx="20" cy="23" r="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="size-note">512x512 - Perfect for all devices</div>
+        </div>
+
+        <!-- Logo 2 -->
+        <div class="logo-container">
+            <div class="logo-title">Logo 2: TS Letters (Recommended ⭐)</div>
+            <div class="logo-wrapper">
+                <div class="logo2" id="logo2">
+                    <div class="logo2-text">TS</div>
+                </div>
+            </div>
+            <div class="size-note">512x512 - Clean & Professional</div>
+        </div>
+
+        <!-- Logo 3 -->
+        <div class="logo-container">
+            <div class="logo-title">Logo 3: Tech Circuit</div>
+            <div class="logo-wrapper">
+                <div class="logo3" id="logo3">
+                    <svg class="tech-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12" stroke="white" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="4" fill="white"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="size-note">512x512 - Modern Tech Look</div>
+        </div>
+
+        <!-- Logo 4 -->
+        <div class="logo-container">
+            <div class="logo-title">Logo 4: Store Front</div>
+            <div class="logo-wrapper">
+                <div class="logo4" id="logo4">
+                    <svg class="store-icon" viewBox="0 0 24 24">
+                        <path d="M3 9L12 2L21 9V20C21 21.1 20.1 22 19 22H5C3.9 22 3 21.1 3 20V9Z"/>
+                        <path d="M9 22V12H15V22"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="size-note">512x512 - Fresh Green</div>
+        </div>
+
+        <!-- Logo 5 -->
+        <div class="logo-container">
+            <div class="logo-title">Logo 5: Diamond Premium</div>
+            <div class="logo-wrapper">
+                <div class="logo5" id="logo5">
+                    <svg class="diamond-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L2 9L12 22L22 9L12 2Z"/>
+                        <path d="M2 9H22M12 2V22" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="size-note">512x512 - Luxury Orange</div>
+        </div>
+
+        <!-- Logo 6 -->
+        <div class="logo-container">
+            <div class="logo-title">Logo 6: Modern Badge</div>
+            <div class="logo-wrapper">
+                <div class="logo6" id="logo6">
+                    <div class="logo6-main">TS</div>
+                    <div class="logo6-sub">TECH</div>
+                </div>
+            </div>
+            <div class="size-note">512x512 - Dark Theme</div>
+        </div>
+    </div>
+
+    <script>
+        console.log('🎨 TechStore Logo Generator Ready!');
+        console.log('Right-click any logo to save as image');
+    </script>
+</body>
+</html>

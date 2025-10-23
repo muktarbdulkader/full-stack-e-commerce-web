@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - TechStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar"></nav>
+
+    <!-- Product Detail Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" id="breadcrumb"></nav>
+
+            <!-- Product Content -->
+            <div id="productContent" class="loading-container">
+                <div class="spinner"></div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-section" id="relatedSection" style="display: none;">
+                <h2 class="section-title">You May Also Like</h2>
+                <div class="products-grid" id="relatedProducts"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/advanced-features.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

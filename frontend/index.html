@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="TechStore - Your one-stop shop for premium electronics, gadgets, and tech accessories. Fast shipping worldwide!" />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="TechStore" />
+    
+    <title>TechStore - Premium Electronics Shop</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-72x72.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-192x192.png" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/advanced-features.css" />
+    <link rel="stylesheet" href="css/additional-features.css" />
+    <link rel="stylesheet" href="css/how-it-works.css" />
+    <link rel="stylesheet" href="css/index-beautiful.css" />
+    <link rel="stylesheet" href="css/pwa.css" />
+    <link rel="stylesheet" href="css/logo-animations.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar"></nav>
+    <!-- <button class="toggle" id="toggle-button">=</button> -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">Discover the Latest Technology</h1>
+          <p class="hero-subtitle">
+            Shop the newest gadgets and electronics with unbeatable prices and
+            fast delivery.
+          </p>
+          <div class="hero-buttons">
+            <a href="shop.html" class="btn btn-primary">Shop Now</a>
+            <a href="about.html" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories-section">
+      <div class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Categories will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Products</h2>
+          <a href="shop.html" class="link-with-arrow">View All →</a>
+        </div>
+        <div class="products-grid" id="featuredProducts">
+          <!-- Products will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">our premium product collection</h2>
+          <a href="shop.html" class="link-with-arrow">View All →</a>
+        </div>
+        <div class="products-grid" id="premiumProducts">
+          <!-- Products will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+    <div id="latestProductsSection"></div>
+
+    <!-- Recently Viewed Section -->
+    <div id="recentlyViewedSection"></div>
+
+    <!-- Features Section -->
+    <section class="section features-section">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>Free Shipping</h3>
+            <p>On orders over $100</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Secure Payment</h3>
+            <p>100% secure transactions</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                ></path>
+              </svg>
+            </div>
+            <h3>24/7 Support</h3>
+            <p>Dedicated customer service</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Our Core Values</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 2l4 7H8l4-7z"></path>
+                <path d="M2 9h20v13H2z"></path>
+              </svg>
+            </div>
+            <h3>Innovation</h3>
+            <p>
+              We embrace cutting-edge technology to provide the best products
+              and services to our customers.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3>Customer Satisfaction</h3>
+            <p>
+              Our customers are at the heart of everything we do. We strive to
+              exceed their expectations.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Integrity</h3>
+            <p>
+              We conduct our business with honesty and transparency, building
+              trust with our customers and partners.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section - Beautiful Modern Design -->
+    <section class="how-it-works-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header-beautiful">
+          <div class="badge-glow">HOW IT WORKS</div>
+          <h2 class="title-beautiful">Start Shopping in 4 Easy Steps</h2>
+          <p class="subtitle-beautiful">
+            Join thousands of happy customers. Simple, fast, and secure shopping
+            experience guaranteed.
+          </p>
+        </div>
+
+        <!-- Steps Container -->
+        <div class="steps-container-beautiful">
+          <!-- Step 1 -->
+          <div class="step-card-beautiful" data-step="1">
+            <div class="step-card-inner">
+              <div class="step-badge">01</div>
+              <div class="step-icon-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <h3>Discover Products</h3>
+              <p>
+                Browse 33+ premium tech products. Use smart filters and search
+                to find exactly what you need.
+              </p>
+              <div class="step-features">
+                <span>🔍 Smart Search</span>
+                <span>🏷️ Categories</span>
+                <span>⭐ Top Rated</span>
+              </div>
+            </div>
+            <div class="step-arrow">→</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card-beautiful" data-step="2">
+            <div class="step-card-inner">
+              <div class="step-badge">02</div>
+              <div class="step-icon-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </div>
+              <h3>Add to Cart</h3>
+              <p>
+                Select products and manage your cart easily. Save favorites to
+                wishlist for later purchase.
+              </p>
+              <div class="step-features">
+                <span>❤️ Wishlist</span>
+                <span>🔄 Compare</span>
+                <span>👁️ Preview</span>
+              </div>
+            </div>
+            <div class="step-arrow">→</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card-beautiful" data-step="3">
+            <div class="step-card-inner">
+              <div class="step-badge">03</div>
+              <div class="step-icon-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                  <line x1="1" y1="10" x2="23" y2="10"></line>
+                </svg>
+              </div>
+              <h3>Secure Payment</h3>
+              <p>
+                Checkout safely with SSL encryption. Multiple payment options
+                available for your convenience.
+              </p>
+              <div class="step-features">
+                <span>🔒 SSL Secure</span>
+                <span>💳 All Cards</span>
+                <span>✅ Verified</span>
+              </div>
+            </div>
+            <div class="step-arrow">→</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card-beautiful" data-step="4">
+            <div class="step-card-inner">
+              <div class="step-badge">04</div>
+              <div class="step-icon-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h3>Fast Delivery</h3>
+              <p>
+                Track your order in real-time. Free shipping on orders over
+                $100. Delivered to your door!
+              </p>
+              <div class="step-features">
+                <span>🚚 Free Ship $100+</span>
+                <span>📍 Track Order</span>
+                <span>⚡ Quick</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="cta-beautiful">
+          <div class="cta-content">
+            <div class="cta-icon">🎉</div>
+            <h3>Ready to Get Started?</h3>
+            <p>Join 10,000+ satisfied customers shopping with confidence</p>
+            <a href="shop.html" class="btn-beautiful">
+              <span>Start Shopping Now</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Testimonials (from existing sections, enhancements.js will add more) -->
+    <!-- <section class="section buyer-voices">
+      <h1>What Our Customers Say</h1>
+      <div class="testimonials-container">
+        <div class="testimonial-card">
+          <p>
+            "TechStore made buying gadgets so easy! I found exactly what I
+            needed and checkout was super smooth. Highly recommend!"
+          </p>
+          <div class="buyer-info">
+            <div class="avatar-wrapper">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="John Doe"
+              />
+            </div>
+            <div>
+              <h3>John Doe</h3>
+              <span>Entrepreneur</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>
+            "Fast shipping and amazing products! The TechStore team really cares
+            about quality and customer service."
+          </p>
+          <div class="buyer-info">
+            <div class="avatar-wrapper">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Sarah Lee"
+              />
+            </div>
+            <div>
+              <h3>Sarah Lee</h3>
+              <span>Tech Enthusiast</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>
+            "I love the variety of gadgets available. Each product was exactly
+            as described. TechStore is my go-to store for electronics!"
+          </p>
+          <div class="buyer-info">
+            <div class="avatar-wrapper">
+              <img
+                src="https://randomuser.me/api/portraits/men/56.jpg"
+                alt="Ahmed Ali"
+              />
+            </div>
+            <div>
+              <h3>Ahmed Ali</h3>
+              <span>Student</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Latest Products Section -->
+
+    <!-- Special Gifts Section -->
+    <section class="section special-gifts-section">
+      <div class="container">
+        <div class="section-header-beautiful">
+          <span class="badge-animated">🎁 EXCLUSIVE OFFERS</span>
+          <h2 class="section-title">Special Gifts For You</h2>
+          <p class="section-subtitle">Unlock amazing rewards and exclusive bonuses with every purchase</p>
+        </div>
+
+        <div class="gifts-grid">
+          <div class="gift-card">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+                <path d="M12 8v13"></path>
+                <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path>
+                <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path>
+              </svg>
+            </div>
+            <div class="gift-content">
+              <h3>Free Gift Box</h3>
+              <p>Beautiful gift wrapping on orders over $150</p>
+              <div class="gift-tag">Premium Packaging</div>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <div class="gift-content">
+              <h3>Same Day Delivery</h3>
+              <p>Get your order delivered within hours in select cities</p>
+              <div class="gift-tag">Fast & Free</div>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <div class="gift-content">
+              <h3>Loyalty Points</h3>
+              <p>Earn 5% back on every purchase as reward points</p>
+              <div class="gift-tag">Earn & Save</div>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <div class="gift-content">
+              <h3>Birthday Surprise</h3>
+              <p>Special discount coupon on your birthday month</p>
+              <div class="gift-tag">Celebrate You</div>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="gift-content">
+              <h3>Extended Warranty</h3>
+              <p>Free 1-year extended warranty on electronics</p>
+              <div class="gift-tag">Peace of Mind</div>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div class="gift-content">
+              <h3>24/7 Support</h3>
+              <p>Priority customer support via chat, email & phone</p>
+              <div class="gift-tag">Always Here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Partners Section -->
+    <section class="section partners-section">
+      <div class="container">
+        <div class="partners-header">
+          <h3>Trusted by Leading Brands</h3>
+          <p>We partner with the world's best technology companies</p>
+        </div>
+
+        <div class="partners-grid">
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span>Apple</span>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+              <span>Samsung</span>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2" stroke="white" stroke-width="2"/>
+              </svg>
+              <span>Sony</span>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              </svg>
+              <span>LG</span>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.5 16.5V7.5L12 3 3.5 7.5v9L12 21z"/>
+              </svg>
+              <span>Microsoft</span>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9"/>
+              </svg>
+              <span>Dell</span>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v8M8 12h8" stroke="white" stroke-width="2"/>
+              </svg>
+              <span>HP</span>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+              </svg>
+              <span>Lenovo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="partners-cta">
+          <p>Want to become a partner? <a href="#contact">Contact Us</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Countries Section -->
+    <section class="section countries-section">
+      <div class="container">
+        <div class="countries-header">
+          <span class="badge-animated">🌍 GLOBAL SHIPPING</span>
+          <h2 class="section-title">We Ship Worldwide</h2>
+          <p class="countries-subtitle">Fast and reliable delivery to over 50 countries</p>
+        </div>
+
+        <div class="countries-grid">
+          <div class="country-card">
+            <div class="country-flag">🇺🇸</div>
+            <h4>United States</h4>
+            <p>2-3 Days</p>
+            <span class="shipping-badge free">Free Shipping</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇬🇧</div>
+            <h4>United Kingdom</h4>
+            <p>3-5 Days</p>
+            <span class="shipping-badge free">Free Shipping</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇨🇦</div>
+            <h4>Canada</h4>
+            <p>3-4 Days</p>
+            <span class="shipping-badge free">Free Shipping</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇦🇺</div>
+            <h4>Australia</h4>
+            <p>5-7 Days</p>
+            <span class="shipping-badge">$15 Flat Rate</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇩🇪</div>
+            <h4>Germany</h4>
+            <p>3-5 Days</p>
+            <span class="shipping-badge free">Free Shipping</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇫🇷</div>
+            <h4>France</h4>
+            <p>3-5 Days</p>
+            <span class="shipping-badge free">Free Shipping</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇯🇵</div>
+            <h4>Japan</h4>
+            <p>4-6 Days</p>
+            <span class="shipping-badge">$12 Flat Rate</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇮🇳</div>
+            <h4>India</h4>
+            <p>5-7 Days</p>
+            <span class="shipping-badge">$10 Flat Rate</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇧🇷</div>
+            <h4>Brazil</h4>
+            <p>7-10 Days</p>
+            <span class="shipping-badge">$18 Flat Rate</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇮🇹</div>
+            <h4>Italy</h4>
+            <p>3-5 Days</p>
+            <span class="shipping-badge free">Free Shipping</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇪🇸</div>
+            <h4>Spain</h4>
+            <p>3-5 Days</p>
+            <span class="shipping-badge free">Free Shipping</span>
+          </div>
+
+          <div class="country-card">
+            <div class="country-flag">🇲🇽</div>
+            <h4>Mexico</h4>
+            <p>4-6 Days</p>
+            <span class="shipping-badge">$14 Flat Rate</span>
+          </div>
+        </div>
+
+        <div class="countries-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Secure Customs Clearance</h4>
+              <p>We handle all customs paperwork</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Real-Time Tracking</h4>
+              <p>Track your order every step of the way</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Local Support</h4>
+              <p>Customer service in your language</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h4>Easy Returns</h4>
+              <p>30-day hassle-free returns worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="countries-cta">
+          <h3>Don't see your country?</h3>
+          <p>We're constantly expanding! Contact us to check availability</p>
+          <a href="#contact" class="btn-beautiful">
+            <span>Contact Support</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- PWA Installation Script -->
+    <script src="js/pwa-install.js"></script>
+    
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/advanced-features.js"></script>
+    <script src="js/additional-features.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/enhancements.js"></script>
+
+    <script>
+      // Track home page view
+      if (typeof analytics !== "undefined") {
+        analytics.trackPageView("Home Page");
+      }
+
+      // Initialize sections on home page
+      document.addEventListener("DOMContentLoaded", () => {
+        // Latest Products Section
+        setTimeout(() => {
+          latestProducts.renderSection("latestProductsSection");
+        }, 500);
+
+        // Recently Viewed Section
+        setTimeout(() => {
+          recentlyViewedSection.render("recentlyViewedSection");
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

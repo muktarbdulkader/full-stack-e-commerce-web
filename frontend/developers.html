@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full-Stack Development - Local Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/developers.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Local Store</a>
+        <button class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="navbar-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <a href="developers.html" class="nav-link active">Developers</a>
+          </li>
+          <li><a href="track-order.html" class="nav-link">Track Order</a></li>
+          <li>
+            <a href="profile.html" class="nav-link" id="profileLink">Profile</a>
+          </li>
+          <li>
+            <a href="cart.html" class="nav-link cart-link">
+              Cart <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="dev-hero">
+      <div class="container">
+        <div class="dev-hero-content">
+          <div class="dev-hero-badge">
+            <span class="badge-dot"></span>
+            Modern Full-Stack Development
+          </div>
+          <h1 class="dev-hero-title">
+            Built with
+            <span class="gradient-text">Cutting-Edge</span> Technology
+          </h1>
+          <p class="dev-hero-subtitle">
+            A complete e-commerce platform showcasing modern full-stack
+            development practices with React, Node.js, and dual database
+            support.
+          </p>
+          <div class="dev-hero-actions">
+            <a href="#architecture" class="btn btn-primary"
+              >Explore Architecture</a
+            >
+            <a href="#tech-stack" class="btn btn-outline">View Tech Stack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Grid -->
+    <section class="dev-features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Full-Stack Capabilities</h2>
+          <p>Enterprise-grade features for modern e-commerce</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>Dual Implementation</h3>
+            <p>
+              React/TypeScript and Vanilla JavaScript implementations for
+              maximum flexibility
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8" />
+                <path d="M12 17v4" />
+              </svg>
+            </div>
+            <h3>Responsive Design</h3>
+            <p>
+              Mobile-first approach with seamless experience across all devices
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3>Real-Time Updates</h3>
+            <p>Live cart updates, order tracking, and instant notifications</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3>Secure Authentication</h3>
+            <p>JWT-based authentication with bcrypt password hashing</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <h3>Dual Database</h3>
+            <p>
+              Support for both MongoDB (NoSQL) and PostgreSQL (SQL) databases
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                />
+              </svg>
+            </div>
+            <h3>RESTful API</h3>
+            <p>
+              Well-structured API with comprehensive endpoints for all
+              operations
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="dev-architecture" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <h2>System Architecture</h2>
+          <p>
+            Modern three-tier architecture for scalability and maintainability
+          </p>
+        </div>
+        <div class="architecture-diagram">
+          <div class="arch-layer">
+            <div class="arch-layer-header">
+              <div class="layer-icon frontend-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18" />
+                  <path d="M9 21V9" />
+                </svg>
+              </div>
+              <h3>Frontend Layer</h3>
+            </div>
+            <div class="arch-components">
+              <div class="arch-component">
+                <h4>React + TypeScript</h4>
+                <p>Modern SPA with type safety</p>
+              </div>
+              <div class="arch-component">
+                <h4>Vanilla JavaScript</h4>
+                <p>Lightweight alternative</p>
+              </div>
+              <div class="arch-component">
+                <h4>Tailwind CSS</h4>
+                <p>Utility-first styling</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="arch-arrow">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-header">
+              <div class="layer-icon backend-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  />
+                </svg>
+              </div>
+              <h3>Backend Layer</h3>
+            </div>
+            <div class="arch-components">
+              <div class="arch-component">
+                <h4>Node.js + Express</h4>
+                <p>High-performance server</p>
+              </div>
+              <div class="arch-component">
+                <h4>JWT Authentication</h4>
+                <p>Secure token-based auth</p>
+              </div>
+              <div class="arch-component">
+                <h4>RESTful API</h4>
+                <p>Clean API endpoints</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="arch-arrow">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-header">
+              <div class="layer-icon database-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <ellipse cx="12" cy="5" rx="9" ry="3" />
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                </svg>
+              </div>
+              <h3>Database Layer</h3>
+            </div>
+            <div class="arch-components">
+              <div class="arch-component">
+                <h4>MongoDB</h4>
+                <p>NoSQL document database</p>
+              </div>
+              <div class="arch-component">
+                <h4>PostgreSQL</h4>
+                <p>Relational SQL database</p>
+              </div>
+              <div class="arch-component">
+                <h4>Flexible Schema</h4>
+                <p>Choose what fits best</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="dev-tech-stack" id="tech-stack">
+      <div class="container">
+        <div class="section-header">
+          <h2>Technology Stack</h2>
+          <p>Built with industry-leading technologies and best practices</p>
+        </div>
+        <div class="tech-stack-grid">
+          <div class="tech-category">
+            <h3>Frontend</h3>
+            <div class="tech-items">
+              <div class="tech-item">
+                <span class="tech-name">React 18</span>
+                <span class="tech-badge">UI Library</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">TypeScript</span>
+                <span class="tech-badge">Type Safety</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">Tailwind CSS</span>
+                <span class="tech-badge">Styling</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">React Router</span>
+                <span class="tech-badge">Navigation</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">Zustand</span>
+                <span class="tech-badge">State Management</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h3>Backend</h3>
+            <div class="tech-items">
+              <div class="tech-item">
+                <span class="tech-name">Node.js</span>
+                <span class="tech-badge">Runtime</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">Express.js</span>
+                <span class="tech-badge">Framework</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">JWT</span>
+                <span class="tech-badge">Authentication</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">Bcrypt</span>
+                <span class="tech-badge">Encryption</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">CORS</span>
+                <span class="tech-badge">Security</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h3>Database</h3>
+            <div class="tech-items">
+              <div class="tech-item">
+                <span class="tech-name">MongoDB</span>
+                <span class="tech-badge">NoSQL</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">Mongoose</span>
+                <span class="tech-badge">ODM</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">PostgreSQL</span>
+                <span class="tech-badge">SQL</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">pg</span>
+                <span class="tech-badge">Driver</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h3>Development</h3>
+            <div class="tech-items">
+              <div class="tech-item">
+                <span class="tech-name">Vite</span>
+                <span class="tech-badge">Build Tool</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">ESLint</span>
+                <span class="tech-badge">Linting</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">Git</span>
+                <span class="tech-badge">Version Control</span>
+              </div>
+              <div class="tech-item">
+                <span class="tech-name">Nodemon</span>
+                <span class="tech-badge">Hot Reload</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Endpoints Section -->
+    <section class="dev-api">
+      <div class="container">
+        <div class="section-header">
+          <h2>API Endpoints</h2>
+          <p>Comprehensive RESTful API for all e-commerce operations</p>
+        </div>
+        <div class="api-groups">
+          <div class="api-group">
+            <div class="api-group-header">
+              <h3>Authentication</h3>
+              <span class="api-base">/api/auth</span>
+            </div>
+            <div class="api-endpoints">
+              <div class="api-endpoint">
+                <span class="http-method post">POST</span>
+                <span class="endpoint-path">/register</span>
+                <span class="endpoint-desc">Create new user account</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method post">POST</span>
+                <span class="endpoint-path">/login</span>
+                <span class="endpoint-desc"
+                  >Authenticate user and get token</span
+                >
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method get">GET</span>
+                <span class="endpoint-path">/profile</span>
+                <span class="endpoint-desc">Get user profile data</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-group">
+            <div class="api-group-header">
+              <h3>Products</h3>
+              <span class="api-base">/api/products</span>
+            </div>
+            <div class="api-endpoints">
+              <div class="api-endpoint">
+                <span class="http-method get">GET</span>
+                <span class="endpoint-path">/</span>
+                <span class="endpoint-desc">List all products</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method get">GET</span>
+                <span class="endpoint-path">/:id</span>
+                <span class="endpoint-desc">Get product details</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method post">POST</span>
+                <span class="endpoint-path">/</span>
+                <span class="endpoint-desc">Create new product (admin)</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method put">PUT</span>
+                <span class="endpoint-path">/:id</span>
+                <span class="endpoint-desc">Update product (admin)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-group">
+            <div class="api-group-header">
+              <h3>Orders</h3>
+              <span class="api-base">/api/orders</span>
+            </div>
+            <div class="api-endpoints">
+              <div class="api-endpoint">
+                <span class="http-method post">POST</span>
+                <span class="endpoint-path">/</span>
+                <span class="endpoint-desc">Create new order</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method get">GET</span>
+                <span class="endpoint-path">/user/:userId</span>
+                <span class="endpoint-desc">Get user orders</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method get">GET</span>
+                <span class="endpoint-path">/:orderId</span>
+                <span class="endpoint-desc">Track order status</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method put">PUT</span>
+                <span class="endpoint-path">/:id/status</span>
+                <span class="endpoint-desc">Update order status (admin)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-group">
+            <div class="api-group-header">
+              <h3>Cart</h3>
+              <span class="api-base">/api/cart</span>
+            </div>
+            <div class="api-endpoints">
+              <div class="api-endpoint">
+                <span class="http-method get">GET</span>
+                <span class="endpoint-path">/:userId</span>
+                <span class="endpoint-desc">Get user cart</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method post">POST</span>
+                <span class="endpoint-path">/add</span>
+                <span class="endpoint-desc">Add item to cart</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method put">PUT</span>
+                <span class="endpoint-path">/update</span>
+                <span class="endpoint-desc">Update cart item quantity</span>
+              </div>
+              <div class="api-endpoint">
+                <span class="http-method delete">DELETE</span>
+                <span class="endpoint-path">/remove/:productId</span>
+                <span class="endpoint-desc">Remove item from cart</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="dev-metrics">
+      <div class="container">
+        <div class="section-header">
+          <h2>Performance Metrics</h2>
+          <p>Optimized for speed, scalability, and user experience</p>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value">< 100ms</div>
+            <div class="metric-label">API Response Time</div>
+            <div class="metric-bar">
+              <div class="metric-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">98%</div>
+            <div class="metric-label">Lighthouse Score</div>
+            <div class="metric-bar">
+              <div class="metric-fill" style="width: 98%"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Mobile Responsive</div>
+            <div class="metric-bar">
+              <div class="metric-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">A+</div>
+            <div class="metric-label">Security Grade</div>
+            <div class="metric-bar">
+              <div class="metric-fill" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="dev-getting-started">
+      <div class="container">
+        <div class="section-header">
+          <h2>Getting Started</h2>
+          <p>Quick setup guide for developers</p>
+        </div>
+        <div class="setup-steps">
+          <div class="setup-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Clone Repository</h3>
+              <div class="code-block">
+                <code
+                  >git clone
+                  https://github.com/yourusername/local-store.git</code
+                >
+              </div>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Install Dependencies</h3>
+              <div class="code-block">
+                <code>npm install && cd backend && npm install</code>
+              </div>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Configure Environment</h3>
+              <div class="code-block">
+                <code>cp .env.example .env && nano .env</code>
+              </div>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Start Development</h3>
+              <div class="code-block">
+                <code>npm run dev && npm run backend</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="dev-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Build Something Amazing?</h2>
+          <p>Start exploring our full-stack e-commerce platform today</p>
+          <div class="cta-actions">
+            <a href="index.html" class="btn btn-primary">View Live Demo</a>
+            <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Local Store</h3>
+            <p>
+              Modern e-commerce platform built with cutting-edge technology.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Developers</h4>
+            <ul>
+              <li><a href="#architecture">Architecture</a></li>
+              <li><a href="#tech-stack">Tech Stack</a></li>
+              <li><a href="README.md">Documentation</a></li>
+              <li><a href="https://github.com" target="_blank">GitHub</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="track-order.html">Track Order</a></li>
+              <li><a href="contact.html">Help Center</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Local Store. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/developers.js"></script>
+  </body>
+</html>
