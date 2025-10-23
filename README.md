@@ -333,6 +333,3 @@ For issues or questions:
 ---
 
 Built with ❤️ using Vanilla JavaScript
-#   f u l l - s t a c k - E - e c o m m e r c e - w e b s i t e  
- #   f u l l - s t a c k - e - c o m m e r c e - w e b  
- 
